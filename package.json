@@ -1,6 +1,6 @@
 {
   "name": "google-local-guides-api",
-  "version": "1.0.7",
+  "version": "andary-1.1.0",
   "description": "(Unofficial) Get your google contribution metadata using this api!",
   "main": "index.js",
   "scripts": {
