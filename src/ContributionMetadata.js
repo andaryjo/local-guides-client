@@ -21,8 +21,8 @@ class ContributionMetadata {
      * @return {string} # of points
      */
     getPoints() {
-        let pattern = /((\d|,)+) Points/g;
-        return this.getMatch(pattern);
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) Points/g;
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -32,7 +32,7 @@ class ContributionMetadata {
      */
     getLevel() {
         let pattern = /Level (\d+) Local Guide/g;
-        return this.getMatch(pattern);
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -41,8 +41,8 @@ class ContributionMetadata {
      * @return {string} # of reviews
      */
     getReviews() {
-        let pattern = /(\d+) review[s]?/g;
-        return this.getMatch(pattern);
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) review[s]?/g;
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -51,8 +51,8 @@ class ContributionMetadata {
      * @return {string} # of ratings
      */
     getRatings() {
-        let pattern = /(\d+) rating[s]?/g;
-        return this.getMatch(pattern);
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) rating[s]?/g;
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -61,8 +61,8 @@ class ContributionMetadata {
      * @return {string} # of questions
      */
     getQuestions() {
-        let pattern = /(\d+) answer[s]?/g;
-        return this.getMatch(pattern);
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) answer[s]?/g;
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -71,8 +71,8 @@ class ContributionMetadata {
      * @return {string} # of places added
      */
     getPlacesAdded() {
-        let pattern = /(\d+) place[s]? added/g;
-        return this.getMatch(pattern);
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) place[s]? added/g;
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -81,8 +81,8 @@ class ContributionMetadata {
      * @return {string} # of edits
      */
     getEdits() {
-        let pattern = /(\d+) edit[s]?/g;
-        return this.getMatch(pattern);
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) edit[s]?/g;
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -91,8 +91,8 @@ class ContributionMetadata {
      * @return {string} # of facts
      */
     getFacts() {
-        let pattern = /(\d+) fact[s]?/g;
-        return this.getMatch(pattern);
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) fact[s]?/g;
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -101,8 +101,8 @@ class ContributionMetadata {
      * @return {string} # of videos
      */
     getVideos() {
-        let pattern = /(\d+) video[s]?/g;
-        return this.getMatch(pattern);
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) video[s]?/g;
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -111,8 +111,8 @@ class ContributionMetadata {
      * @return {string} # of Q&As
      */
     getQA() {
-        let pattern = /(\d+) Q\\\\u0026A/g;
-        return this.getMatch(pattern);
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) Q\\\\u0026A/g;
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -121,8 +121,8 @@ class ContributionMetadata {
      * @return {string} # of roads
      */
     getRoadsAdded() {
-        let pattern = /(\d+) road[s]? added/g;
-        return this.getMatch(pattern);
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) road[s]? added/g;
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -131,8 +131,8 @@ class ContributionMetadata {
      * @return {string} # of published lists
      */
     getPublishedLists() {
-        let pattern = /(\d+) published list[s]?/g;
-        return this.getMatch(pattern);
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) published list[s]?/g;
+        return this.parseNumber(this.getMatch(pattern));
     }
 
     /**
@@ -179,6 +179,10 @@ class ContributionMetadata {
      */
     async getResponseBody(link) {
         return (await axios.get(link)).data;
+    }
+
+    parseNumber(string) {
+        return parseInt(string.replace(/,/g, '').replace(/\./g, ''));
     }
 }
 

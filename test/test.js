@@ -20,11 +20,10 @@ describe('ContributionMetadata Class', () => {
         for (const reqAttr of ["name", "points", 'level', 'reviews', 'ratings', 'questions', 'placesAdded', 'edits', 'facts', 'videos', 'qa', 'roadsAdded', 'listsPublished']) {
             it('metadata should have attribute ' + reqAttr, async () => {
                 expect(metadata[reqAttr]).to.not.be.null;
-                expect(metadata[reqAttr]).to.be.a('string');
-                if (reqAttr != "name") {
-                    let parseIntAttr = parseInt(metadata[reqAttr]);
-                    expect(parseIntAttr).to.be.a('number');
-                    expect(parseIntAttr >= 0).to.equal(true);
+                if (reqAttr == "name") expect(metadata[reqAttr]).to.be.a('string');
+                else {
+                    expect(metadata[reqAttr]).to.be.a('number');
+                    expect(metadata[reqAttr] >= 0).to.equal(true);
                 }
             })
         }
