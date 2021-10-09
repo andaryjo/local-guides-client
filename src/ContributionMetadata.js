@@ -10,6 +10,16 @@ class ContributionMetadata {
      * @public
      * @return {string} # of points
      */
+    getName() {
+        let pattern = /"Contributions by (.*?)"/g;
+        return this.getMatch(pattern);
+    }
+
+    /**
+     * Gets how many points is associated with your Local Guide Profile
+     * @public
+     * @return {string} # of points
+     */
     getPoints() {
         let pattern = /((\d|,)+) Points/g;
         return this.getMatch(pattern);
@@ -132,6 +142,7 @@ class ContributionMetadata {
      */
     getMetadata() {
         return {
+            name: this.getName(),
             points: this.getPoints(),
             level: this.getLevel(),
             reviews: this.getReviews(),
