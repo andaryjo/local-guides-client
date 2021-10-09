@@ -6,7 +6,7 @@ class ContributionMetadata {
     }
 
     /**
-     * Gets how many points is associated with your Local Guide Profile
+     * Gets the name of your Local Gude Profile
      * @public
      * @return {string} # of points
      */
@@ -18,7 +18,7 @@ class ContributionMetadata {
     /**
      * Gets how many points is associated with your Local Guide Profile
      * @public
-     * @return {string} # of points
+     * @return {number} # of points
      */
     getPoints() {
         let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) Points/g;
@@ -28,7 +28,7 @@ class ContributionMetadata {
     /**
      * Gets what level you are on your Local Guide Profile
      * @public
-     * @return {string} your level
+     * @return {number} your level
      */
     getLevel() {
         let pattern = /Level (\d+) Local Guide/g;
@@ -38,7 +38,7 @@ class ContributionMetadata {
     /**
      * Gets how many reviews you have left associated with your Local Guide Profile
      * @public
-     * @return {string} # of reviews
+     * @return {number} # of reviews
      */
     getReviews() {
         let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) review[s]?/g;
@@ -48,7 +48,7 @@ class ContributionMetadata {
     /**
      * Gets how many ratings you gave associated with your Local Guide Profile
      * @public
-     * @return {string} # of ratings
+     * @return {number} # of ratings
      */
     getRatings() {
         let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) rating[s]?/g;
@@ -58,7 +58,7 @@ class ContributionMetadata {
     /**
      * Gets how many questions you left associated with your Local Guide Profile
      * @public
-     * @return {string} # of questions
+     * @return {number} # of questions
      */
     getQuestions() {
         let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) answer[s]?/g;
@@ -68,7 +68,7 @@ class ContributionMetadata {
     /**
      * Gets how many places you added associated with your Local Guide Profile
      * @public
-     * @return {string} # of places added
+     * @return {number} # of places added
      */
     getPlacesAdded() {
         let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) place[s]? added/g;
@@ -78,7 +78,7 @@ class ContributionMetadata {
     /**
      * Gets how many edits you made associated with your Local Guide Profile
      * @public
-     * @return {string} # of edits
+     * @return {number} # of edits
      */
     getEdits() {
         let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) edit[s]?/g;
@@ -88,7 +88,7 @@ class ContributionMetadata {
     /**
      * Gets how many facts you left associated with your Local Guide Profile
      * @public
-     * @return {string} # of facts
+     * @return {number} # of facts
      */
     getFacts() {
         let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) fact[s]?/g;
@@ -96,9 +96,19 @@ class ContributionMetadata {
     }
 
     /**
+     * Gets how many photos you uploaded associated with your Local Guide Profile
+     * @public
+     * @return {number} # of videos
+     */
+    getPhotos() {
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) photos[s]?/g;
+        return this.parseNumber(this.getMatch(pattern));
+    }
+
+    /**
      * Gets how many videos you uploaded associated with your Local Guide Profile
      * @public
-     * @return {string} # of videos
+     * @return {number} # of videos
      */
     getVideos() {
         let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) video[s]?/g;
@@ -108,7 +118,7 @@ class ContributionMetadata {
     /**
      * Gets how many Q&As you answered associated with your Local Guide Profile
      * @public
-     * @return {string} # of Q&As
+     * @return {number} # of Q&As
      */
     getQA() {
         let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) Q\\\\u0026A/g;
@@ -118,7 +128,7 @@ class ContributionMetadata {
     /**
      * Gets how many roads you added associated with your Local Guide Profile
      * @public
-     * @return {string} # of roads
+     * @return {number} # of roads
      */
     getRoadsAdded() {
         let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) road[s]? added/g;
@@ -151,6 +161,7 @@ class ContributionMetadata {
             placesAdded: this.getPlacesAdded(),
             edits: this.getEdits(),
             facts: this.getFacts(),
+            photos: this.getPhotos(),
             videos: this.getVideos(),
             qa: this.getQA(),
             roadsAdded: this.getRoadsAdded(),

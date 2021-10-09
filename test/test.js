@@ -17,7 +17,7 @@ describe('ContributionMetadata Class', () => {
             console.log(metadata);
         });
 
-        for (const reqAttr of ["name", "points", 'level', 'reviews', 'ratings', 'questions', 'placesAdded', 'edits', 'facts', 'videos', 'qa', 'roadsAdded', 'listsPublished']) {
+        for (const reqAttr of ["name", "points", 'level', 'reviews', 'ratings', 'questions', 'placesAdded', 'edits', 'facts', 'photos', 'videos', 'qa', 'roadsAdded', 'listsPublished']) {
             it('metadata should have attribute ' + reqAttr, async () => {
                 expect(metadata[reqAttr]).to.not.be.null;
                 if (reqAttr == "name") expect(metadata[reqAttr]).to.be.a('string');
