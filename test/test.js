@@ -17,6 +17,7 @@ describe('ContributionMetadata Class', () => {
             console.log(metadata);
         });
 
+        // to do: no tests for photo views as they are optional
         for (const reqAttr of ["name", "points", 'level', 'reviews', 'ratings', 'questions', 'placesAdded', 'edits', 'facts', 'photos', 'videos', 'qa', 'roadsAdded', 'listsPublished']) {
             it('metadata should have attribute ' + reqAttr, async () => {
                 expect(metadata[reqAttr]).to.not.be.null;
