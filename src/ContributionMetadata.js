@@ -146,6 +146,19 @@ class ContributionMetadata {
     }
 
     /**
+     * Gets how many lists you published associated with your Local Guide Profile
+     * This pattern does not really have any logic behint it - it is just something that works
+     * The photo views are somehow hidden deep in the data structure and somehow this pattern is able
+     * to identify them reliably - if the profile is not private
+     * @public
+     * @return {string} # of published lists
+     */
+    getPhotoViews() {
+        let pattern = /[null|"],((?!(?:1,))\d+),\[\[/g;
+        return this.parseNumber(this.getMatch(pattern));
+    }
+
+    /**
      * Gets all the metadata in one object
      * @public
      * @return {JSON} metadata
@@ -165,7 +178,8 @@ class ContributionMetadata {
             videos: this.getVideos(),
             qa: this.getQA(),
             roadsAdded: this.getRoadsAdded(),
-            listsPublished: this.getPublishedLists()
+            listsPublished: this.getPublishedLists(),
+            photoViews: this.getPhotoViews()
         }
     }
 
@@ -193,6 +207,7 @@ class ContributionMetadata {
     }
 
     parseNumber(string) {
+        if (!string) return null;
         return parseInt(string.replace(/,/g, '').replace(/\./g, ''));
     }
 }
