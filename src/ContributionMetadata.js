@@ -101,7 +101,7 @@ class ContributionMetadata {
      * @return {number} # of videos
      */
     getPhotos() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) photos[s]?/g;
+        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) photo[s]?/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
