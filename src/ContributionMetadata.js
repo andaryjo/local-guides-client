@@ -21,7 +21,7 @@ class ContributionMetadata {
      * @return {number} # of points
      */
     getPoints() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) Points/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) Points/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
@@ -41,7 +41,7 @@ class ContributionMetadata {
      * @return {number} # of reviews
      */
     getReviews() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) review[s]?/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) review[s]?/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
@@ -51,7 +51,7 @@ class ContributionMetadata {
      * @return {number} # of ratings
      */
     getRatings() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) rating[s]?/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) rating[s]?/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
@@ -61,7 +61,7 @@ class ContributionMetadata {
      * @return {number} # of questions
      */
     getQuestions() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) answer[s]?/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) answer[s]?/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
@@ -71,7 +71,7 @@ class ContributionMetadata {
      * @return {number} # of places added
      */
     getPlacesAdded() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) place[s]? added/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) place[s]? added/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
@@ -81,7 +81,7 @@ class ContributionMetadata {
      * @return {number} # of edits
      */
     getEdits() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) edit[s]?/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) edit[s]?/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
@@ -91,7 +91,7 @@ class ContributionMetadata {
      * @return {number} # of facts
      */
     getFacts() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) fact[s]?/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) fact[s]?/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
@@ -101,7 +101,7 @@ class ContributionMetadata {
      * @return {number} # of videos
      */
     getPhotos() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) photo[s]?/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) photo[s]?/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
@@ -111,7 +111,7 @@ class ContributionMetadata {
      * @return {number} # of videos
      */
     getVideos() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) video[s]?/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) video[s]?/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
@@ -121,7 +121,7 @@ class ContributionMetadata {
      * @return {number} # of Q&As
      */
     getQA() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) Q\\\\u0026A/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) Q\\\\u0026A/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
@@ -131,7 +131,7 @@ class ContributionMetadata {
      * @return {number} # of roads
      */
     getRoadsAdded() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) road[s]? added/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) road[s]? added/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
@@ -141,7 +141,7 @@ class ContributionMetadata {
      * @return {string} # of published lists
      */
     getPublishedLists() {
-        let pattern = /(\d+(?:,\d+)*(?:\.\d+)?) published list[s]?/g;
+        let pattern = /(\d+(?:[\.\,]\d+)*) published list[s]?/g;
         return this.parseNumber(this.getMatch(pattern));
     }
 
