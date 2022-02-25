@@ -1,91 +1,27 @@
-# (Unofficial) Google Local Guides API
-This npm package will give you functionality to get your 
-contribution metadata from your google local guides profile. 
+# Local Guides Client
 
-This package will scrape the data on this modal for you:
-![example google local guides metadata modal](images/Example%20Page.png)
+This is an unofficial client library to fetch contribution data for Google Maps Local Guides, such as points, amounts of reviews and photos, and more. It parses the Google Maps HTML source code of your public profile and requires no authentication.
 
-_Note: there is no authentication when using this package because it'll scrape your public profile page,
-which is accessible to everyone._
+This package is based on the [google-local-guides-api](https://github.com/JinKim7/google-local-guides-api) by @JinKim7 (which sadly does not get maintained anymore) and introduces additional features and bugfixes.
 
-## Quickstart
-Installation
-```shell script
-npm install google-local-guides-api
+
+## Usage 
+
+Install the package:
+
+```
+npm install local-guides-client
 ```
 
-Usage
+Following code creates a client instance, initilizes it by providing the profile URL and fetches the profile data.
+
 ```javascript
-const ContributionMetadata = require('google-local-guides-api');
+const lgclient = require('local-guides-client');
 
-let contributionMetadata = new ContributionMetadata();
+let client = new lgclient();
 
-// This initializes your link into the response body -- has to be in async/await func
-async function () {
-    await contributionMetadata.init(link);
+await client.init("https://www.google.com/maps/contrib/112307346288942529735?hl=en");
 
-    // You can call get specific attributes like points
-    let points = contributionMetadata.getPoints(); 
-    
-    // ...Or use getMetadata() to get all available attributes from you profile
-    let metadata = contributionMetadata.getMetadata();
-} 
-```
-
-What `link` are you talking about?  
-The `link` that you need is your publically available local guides link found here:  
-https://www.google.com/maps/contrib/  
- 
-When redirected to that link, the rest of the URL will populate with your google local guide ID and other information.   
-You can just get the entire link and pass it in as the value as `link`.  
- 
-If you want to have a clean link, this is the structure that you can use:  
-```
-https://www.google.com/maps/contrib/0123456789  
-``` 
-The last path will be your numerical ID. 
-
-## Endpoints
-```javascript
-const ContributionMetadata = require('google-local-guides-api');
-
-let contributionMetadata = new ContributionMetadata();
-
-// This initializes your link into the response body -- has to be in async/await func
-async function () {
-    await contributionMetadata.init(link);
-
-    // You can call get specific attributes like points
-    // These all return string type of a number associated with 
-    // how many/how much for each attribute
-    let points = contributionMetadata.getPoints(); 
-    let level = contributionMetadata.getLevel();
-    let reviews = contributionMetadata.getReviews();
-    let ratings = contributionMetadata.getRatings();
-    let questions = contributionMetadata.getQuestions();
-    let placesAdded = contributionMetadata.getPlacesAdded();
-    let edits = contributionMetadata.getEdits();
-    let facts = contributionMetadata.getFacts();
-    let videos = contributionMetadata.getVideos();
-    let qa = contributionMetadata.getQA();
-    let roadsAdded = contributionMetadata.getRoadsAdded();
-    let listsPublished = contributionMetadata.getPublishedLists();
-    
-    // ...Or use getMetadata() to get all available attributes from you profile
-    let metadata = contributionMetadata.getMetadata();
-    // {
-    //    points: string,
-    //    level: string,
-    //    reviews: string,
-    //    ratings: string,
-    //    questions: string,
-    //    placesAdded: string,
-    //    edits: string,
-    //    facts: string,
-    //    videos: string,
-    //    qa: string,
-    //    roadsAdded: string,
-    //    listsPublished: string
-    // }
-} 
+let data = client.getMetadata();
+let points = client.getPoints();
 ```

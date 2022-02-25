@@ -1,28 +1,23 @@
 {
-  "name": "google-local-guides-api",
-  "version": "1.1.2",
-  "description": "(Unofficial) Get your google contribution metadata using this api!",
+  "name": "local-guides-client",
+  "version": "0.1.0",
+  "description": "Unofficial client library to fetch contribution data for Google Maps Local Guides",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/**/*.js"
+    "test": "echo 'no tests defined'"
   },
-  "author": "Jin",
+  "author": "Jin, andaryjo",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.22.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/BigIntJin/google-local-guides-api.git"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "dotenv": "^8.2.0",
-    "mocha": "^9.1.2"
+    "url": "https://github.com/andaryjo/local-guuides-client.git"
   },
   "keywords": [
     "google contributions",
-    "google map contributions",
+    "google maps contributions",
     "google local guides",
     "local guides",
     "map contributions"
