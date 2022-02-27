@@ -14,8 +14,6 @@ module.exports.fetchData = (uid) => {
         }
 
         const raw = response.data;
-        const finalURL = response.request.res.responseUrl;
-        console.log(finalURL);
 
         const results = {
             name: getName(raw),
@@ -23,12 +21,12 @@ module.exports.fetchData = (uid) => {
             points: getPoints(raw),
             reviews: getReviews(raw),
             ratings: getRatings(raw),
-            phots: getPhotos(raw),
+            photos: getPhotos(raw),
             videos: getVideos(raw),
             answers: getAnswers(raw),
             edits: getEdits(raw),
             placesAdded: getPlacesAdded(raw),
-            roadesAdded: getRoadsAdded(raw),
+            roadsAdded: getRoadsAdded(raw),
             factsChecked: getFactsChecked(raw),
             qa: getQA(raw),
             publishedLists: getPublishedLists(raw),

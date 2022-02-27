@@ -4,16 +4,26 @@
   "description": "Unofficial client library to fetch contribution data for Google Maps Local Guides",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'no tests defined'"
+    "test": "jest"
   },
   "author": "Jin, andaryjo",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.22.0"
   },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/andaryjo/local-guides-client.git"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "verbose": true
   },
   "keywords": [
     "google contributions",
