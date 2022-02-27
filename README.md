@@ -13,15 +13,33 @@ Install the package:
 npm install local-guides-client
 ```
 
-Following code creates a client instance, initilizes it by providing the profile URL and fetches the profile data.
+Following code fetches data of the Local Guide profile with the profile ID `112307346288942529735`.
 
 ```javascript
 const lgclient = require('local-guides-client');
 
-let client = new lgclient();
+lgclient.fetchData("112307346288942529735").then(data => {
+    console.log(data);
+});
+```
+Output:
 
-await client.init("https://www.google.com/maps/contrib/112307346288942529735?hl=en");
-
-let data = client.getMetadata();
-let points = client.getPoints();
+```json
+{
+    "name": "Joe",
+    "level": 9,
+    "points": 50219,
+    "reviews": 352,
+    "ratings": 73,
+    "phots": 3652,
+    "videos": 8,
+    "answers": 946,
+    "edits": 1618,
+    "placesAdded": 748,
+    "roadesAdded": 1,
+    "factsChecked": 73,
+    "qa": 11,
+    "publishedLists": 1,
+    "photoViews": 19698543
+}
 ```
