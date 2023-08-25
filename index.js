@@ -1,19 +1,17 @@
-const axios = require("axios");
-
 module.exports.fetchData = (uid) => {
     return new Promise(async (resolve, reject) => {
         const mapsUrl = `https://www.google.com/maps/contrib/${uid}?hl=en`;
 
         let response;
         try {
-            response = (await axios.get(mapsUrl));
+            response = (await fetch(mapsUrl));
         } catch (err) {
             reject("was not able to fetch data for uid");
             console.error(err);
             return;
         }
 
-        const raw = response.data;
+        const raw = await response.text();
 
         const results = {
             name: getName(raw),

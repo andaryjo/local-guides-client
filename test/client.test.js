@@ -8,7 +8,7 @@ describe("Test client", () => {
 
         expect(data).toHaveProperty("name");
         expect(typeof data.name).toBe("string");
-        expect(data.name).toEqual("Joey");
+        expect(data.name).toEqual("Tschui");
 
         expect(data).toHaveProperty("level");
         expect(typeof data.level).toBe("number");
