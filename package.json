@@ -1,6 +1,6 @@
 {
   "name": "local-guides-client",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Unofficial client library to fetch contribution data for Google Maps Local Guides",
   "main": "index.js",
   "scripts": {
