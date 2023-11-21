@@ -43,9 +43,6 @@ describe("Test client", () => {
         expect(data).toHaveProperty("qa");
         expect(typeof data.qa).toBe("number");
 
-        expect(data).toHaveProperty("publishedLists");
-        expect(typeof data.publishedLists).toBe("number");
-
         expect(data).toHaveProperty("photoViews");
         expect(data.photoViews == null || typeof data.photoViews == "number").toBeTruthy();
     })
@@ -89,9 +86,6 @@ describe("Test client", () => {
 
         expect(data).toHaveProperty("qa");
         expect(data.qa).toBeNull();
-
-        expect(data).toHaveProperty("publishedLists");
-        expect(data.publishedLists).toBeNull();
 
         expect(data).toHaveProperty("photoViews");
         expect(data.photoViews).toBeNull();

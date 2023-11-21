@@ -27,7 +27,6 @@ module.exports.fetchData = (uid) => {
             roadsAdded: getRoadsAdded(raw),
             factsChecked: getFactsChecked(raw),
             qa: getQA(raw),
-            publishedLists: getPublishedLists(raw),
             photoViews: getPhotoViews(raw)
         }
 
@@ -97,11 +96,6 @@ function getFactsChecked(raw) {
 
 function getQA(raw) {
     const pattern = /(\d+(?:[\.\,]\d+)*) Q\\\\u0026A/g;
-    return parseNumber(extractMatch(raw, pattern));
-}
-
-function getPublishedLists(raw) {
-    let pattern = /(\d+(?:[\.\,]\d+)*) published list[s]?/g;
     return parseNumber(extractMatch(raw, pattern));
 }
 
